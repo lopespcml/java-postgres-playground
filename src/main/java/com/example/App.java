@@ -12,6 +12,7 @@ public class App {
     public static void main(String[] args) {
        // new App(); 
        System.out.println("oi");
+       System.out.println();
     }
 
     public App(){
