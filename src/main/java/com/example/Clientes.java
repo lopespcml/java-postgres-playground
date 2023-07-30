@@ -66,4 +66,8 @@ public class Clientes{
     public void setEspecial(boolean especial) {
         this.especial = especial;
     }
+
+    public String toString() {
+        return "Nome= " + nome + "||CPF= " + cpf;
+    }
  }
