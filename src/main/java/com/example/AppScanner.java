@@ -19,7 +19,7 @@ public class AppScanner {
 
     
         System.out.println(cliente1.getNome());
-         System.out.println(cliente1.getCpf());
+        System.out.println(cliente1.getCpf());
         System.out.println(cliente1.getRenda());
         System.out.println(cliente1.getSexo());
         System.out.println(cliente1.getAnoNascimento());
