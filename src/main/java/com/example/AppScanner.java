@@ -24,6 +24,7 @@ public class AppScanner {
         System.out.println(cliente1.getSexo());
         System.out.println(cliente1.getAnoNascimento());
         System.out.println(cliente1.isEspecial());
+        scanner.close();
      
     }
     

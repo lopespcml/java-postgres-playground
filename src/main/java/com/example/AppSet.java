@@ -1,6 +1,6 @@
 package com.example;
 
-import java.util.ArrayList;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.*;
@@ -9,6 +9,7 @@ public class AppSet {
     public static void main(String[] args) {
        // String[] vogais = {"e","i","o","u","a","b","c"};
         Set<String> setVogais = new HashSet<>();
+        Set<String> setVogais1 = new HashSet<>();
               //  Set<String> setVogais = new TreeSet<>(Arrays.asList(vogais));
      // Collections.addAll(setVogais,vogais);
      setVogais.add("a");
@@ -18,6 +19,8 @@ public class AppSet {
      setVogais.add("u");
      setVogais.add("b");
      setVogais.add("c");
+     setVogais1.add("x");
+     setVogais.addAll(setVogais1);
      String strArray[]= setVogais.toArray(new String[setVogais.size()-1]);
     // Collections.sort(setVogais);
 

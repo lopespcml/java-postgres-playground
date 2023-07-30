@@ -10,12 +10,12 @@ public class App {
     private static final String JDBC_URL = "jdbc:postgresql://localhost/postgres";
 
     public static void main(String[] args) {
-       // new App(); 
-       System.out.println("oi");
+       new App(); 
+       System.out.println("Aplicacao acessando DB");
        System.out.println();
-    }
-
-    public App(){
+      
+    } 
+       public App(){
         try(var conn = getConnection()){
             carregarDriverJDBC();
             listarEstados(conn);
