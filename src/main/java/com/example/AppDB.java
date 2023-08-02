@@ -21,8 +21,19 @@ public class AppDB {
         try(var conn=getConnection()){
            /* listarEstados(conn);
             System.out.println();
-            localizarEstado(conn, "TO");*/
-            listasDados(conn,"marca");
+            localizarEstado(conn, "TO");
+            listasDados(conn,"marca"); */
+            var marca=new Marca();
+            marca.setId(3L);
+            var produto =new Produto();
+            produto.setId(202L);
+            produto.setNome("Produto Alterado");
+            produto.setMarca(marca);
+            produto.setValor(100);
+          //  inserirProduto(conn,produto);
+          //  excluirProduto(conn,204L);
+            alterarProduto(conn,produto);
+            produto.listar(conn);
         }
         catch(SQLException e) {
             System.out.println("Nao foi possivel connectar ao banco de dados!!!!" + e.getMessage());
@@ -30,7 +41,7 @@ public class AppDB {
     }
 
 
-    private  void carregarDriver() {
+ private  void carregarDriver() {
         try {Class.forName("org.postgresql.Driver");
         }
         catch (ClassNotFoundException e) {
@@ -97,6 +108,46 @@ public class AppDB {
              System.out.println("Erro no SQL:"+ e.getMessage());
               }      
     }
+    private void inserirProduto(Connection conn, Produto produto) {
+        var sql= "insert into produto (nome, marca_id,valor) values (?,?,?)";
+        try {
+            var statement= conn.prepareStatement(sql);
+            statement.setString(1, produto.getNome());
+            statement.setLong(2, produto.getMarca().getId());
+            statement.setDouble(3, produto.getValor());
+            statement.executeUpdate();
+        } 
+        catch (SQLException e) {
+            System.out.println("Erro no SQL: "+ e.getMessage());
+        }
+    }    
+    private void alterarProduto(Connection conn, Produto produto) {
+        var sql= "update produto set nome=?, marca_id=?,valor=? where id=?";
+        try {
+            var statement= conn.prepareStatement(sql);
+            statement.setString(1, produto.getNome());
+            statement.setLong(2, produto.getMarca().getId());
+            statement.setDouble(3, produto.getValor());
+            statement.setLong(4, produto.getId());
+            statement.executeUpdate();
+        } 
+        catch (SQLException e) {
+            System.out.println("Erro no SQL: "+ e.getMessage());
+        }
+    }    
 
+
+    private void excluirProduto(Connection conn, Long id) {
+        var sql= "delete from produto where id=?";
+        try {       
+        var statement = conn.prepareStatement(sql);
+        statement.setLong(1,id);
+        statement.executeUpdate();
+        } 
+        catch (SQLException e) {
+            System.out.println("Erro no SQL: "+ e.getMessage());
+        }
+    }
+  
 }
   
