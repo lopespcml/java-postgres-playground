@@ -1,5 +1,7 @@
 package com.example;
 
+import Modelo.Clientes;
+
 public class AppClasses {
     public static void main(String[] args) {
         Clientes cliente1=new Clientes("01234567P","     Paulo Cesar   ",10000,'M',1966);

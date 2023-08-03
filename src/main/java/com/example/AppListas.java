@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
+import Modelo.Clientes;
+
 public class AppListas {
     public static void main(String[] args) {
       Clientes[] clientes = new Clientes[5];

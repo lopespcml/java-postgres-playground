@@ -1,4 +1,7 @@
 package com.example;
+
+import Modelo.Clientes;
+
 public class AppOperadoresRelacionais {
     public static void main(String[] args) {
         var cliente1=new Clientes();

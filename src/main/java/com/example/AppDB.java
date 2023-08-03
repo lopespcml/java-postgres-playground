@@ -4,13 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import com.example.dao.ConnectionManager;
+
+import Modelo.Marca;
+import Modelo.Produto;
+
 
 public class AppDB {
-    private static final String PASSWORD = "";
-    private static final String USERNAME = "gitpod";
-    private static final String JDBC_URL = "jdbc:postgresql://localhost/postgres";
-    
-
     public static void main(String[] args) {       
         new AppDB();   
           
@@ -18,9 +18,9 @@ public class AppDB {
 
     public AppDB() {
         carregarDriver();
-        try(var conn=getConnection()){
-           /* listarEstados(conn);
-            System.out.println();
+        try(var conn=ConnectionManager.getConnection()){
+           listarEstados(conn);
+           /* System.out.println();
             localizarEstado(conn, "TO");
             listasDados(conn,"marca"); */
             var marca=new Marca();
@@ -32,8 +32,8 @@ public class AppDB {
             produto.setValor(100);
           //  inserirProduto(conn,produto);
           //  excluirProduto(conn,204L);
-            alterarProduto(conn,produto);
-            produto.listar(conn);
+         //   alterarProduto(conn,produto);
+         //   produto.listar(conn);
         }
         catch(SQLException e) {
             System.out.println("Nao foi possivel connectar ao banco de dados!!!!" + e.getMessage());
@@ -49,9 +49,7 @@ public class AppDB {
         }
     }
 
-    private  Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(JDBC_URL,USERNAME,PASSWORD);
-    }
+   
     private void listarEstados(Connection conn) {
         try{
           //  Statement query=null;

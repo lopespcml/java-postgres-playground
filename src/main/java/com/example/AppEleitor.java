@@ -3,6 +3,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
+import Modelo.Cidadao;
+
 public class AppEleitor {
     public static void main(String[] args) {
             LocalDate dataNascimento;

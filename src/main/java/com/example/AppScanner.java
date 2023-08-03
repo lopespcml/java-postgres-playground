@@ -2,6 +2,8 @@ package com.example;
 
 import java.util.Scanner;
 
+import Modelo.Clientes;
+
 public class AppScanner {
     public static void main(String[] args) {
         Clientes cliente1=new Clientes("?","?",0,'?',1966);

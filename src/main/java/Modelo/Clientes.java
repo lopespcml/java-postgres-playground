@@ -1,4 +1,4 @@
-package com.example;
+package Modelo;
 
 public class Clientes{
     private String cpf;
