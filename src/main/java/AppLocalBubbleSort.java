@@ -13,11 +13,28 @@ public class AppLocalBubbleSort {
        }
        System.out.println("Entrada : " + array); 
        int size = array.size();
-       bublesort(array, size);
+      // bubleSort(array, size);
+       insertionSort(array, size);
        System.out.println("Saida : " + array); 
     }
 
-    private static ArrayList<Integer> bublesort(ArrayList<Integer> array, int size) {
+    private static ArrayList<Integer> insertionSort(ArrayList<Integer> array, int size) {
+        for (int i = 1; i < size; i++) {
+            int pivo = array.get(i);
+            int j= i - 1;
+            while(j>=0 && array.get(j)>pivo) {
+                array.set(j+1, array.get(j));
+             //   array.set(j, pivo);
+                j-=1;
+            }     
+         //   System.out.println("Inter : " + i + " =" + array); 
+            array.set(j+1, pivo);
+       }
+        return array;
+
+    }
+    private static ArrayList<Integer> bubleSort(ArrayList<Integer> array, int size) {
+
         for (int i = 0; i < size; i++) {
             for (int j = 1; j < size - i; j++) {
                 if (array.get(j-1)>array.get(j)) {
