@@ -3,6 +3,17 @@
 -- Área por estado: https://pt.wikipedia.org/wiki/Lista_de_unidades_federativas_do_Brasil_por_área
 -- População por estado (prévio censo 2022): https://pt.wikipedia.org/wiki/Lista_de_unidades_federativas_do_Brasil_por_população
 
+drop table if EXISTS aluno;
+
+create table aluno(
+    matricula SERIAL PRIMARY KEY NOT NULL,
+    descricao VARCHAR(100) not NULL,
+    nota1 DECIMAL(4,2),
+    nota2 DECIMAL(4,2),
+    nota3 DECIMAL(4,2)
+)
+
+
 drop table if exists item_venda;
 drop table if exists venda;
 
